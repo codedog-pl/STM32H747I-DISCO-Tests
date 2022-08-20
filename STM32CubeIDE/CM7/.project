@@ -232,6 +232,41 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/timers.c</locationURI>
 		</link>
 		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_core.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_ctlreq.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_ioreq.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_msc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_msc_bot.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_bot.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_msc_scsi.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/STM32_USB_Host_Library/usbh_pipes.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/freertos.c</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/Core/Src/freertos.c</locationURI>
@@ -470,6 +505,21 @@
 			<name>Application/User/TouchGFX/target/TouchGFXHAL.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/TouchGFX/target/TouchGFXHAL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/USB_HOST/App/usb_host.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/USB_HOST/App/usb_host.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/USB_HOST/Target/usbh_conf.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/USB_HOST/Target/usbh_conf.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/USB_HOST/Target/usbh_platform.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/USB_HOST/Target/usbh_platform.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/TouchGFX/target/generated/OSWrappers.cpp</name>

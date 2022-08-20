@@ -68,6 +68,8 @@ extern int32_t DSI_IO_Read(uint16_t ChannelNbr, uint16_t Reg, uint8_t *pData, ui
 #define LCD_BL_GPIO_Port GPIOJ
 #define LCD_RESET_Pin GPIO_PIN_3
 #define LCD_RESET_GPIO_Port GPIOG
+#define Drive_VBUS_Pin GPIO_PIN_1
+#define Drive_VBUS_GPIO_Port GPIOG
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
