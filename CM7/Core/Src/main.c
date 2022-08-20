@@ -165,6 +165,8 @@ Error_Handler();
   MX_DSIHOST_DSI_Init();
   MX_LTDC_Init();
   MX_TouchGFX_Init();
+  /* Call PreOsInit function */
+  MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
