@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usb_host.h"
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
@@ -80,6 +80,7 @@ void MX_TouchGFX_Process(void)
  */
 void TouchGFX_Task(void *argument)
 {
+  MX_USB_HOST_Init();
   // Calling forward to touchgfx_taskEntry in C++ domain
   touchgfx_taskEntry();
 }

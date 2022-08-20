@@ -30,6 +30,7 @@
 #define USB_DEFAULT_BLOCK_SIZE 512
 
 /* Private variables ---------------------------------------------------------*/
+static DWORD scratch[_MAX_SS / 4];
 extern USBH_HandleTypeDef  hUSB_Host;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,8 +114,30 @@ DRESULT USBH_read(BYTE lun, BYTE *buff, DWORD sector, UINT count)
 {
   DRESULT res = RES_ERROR;
   MSC_LUNTypeDef info;
+  USBH_StatusTypeDef  status = USBH_OK;
 
-  if(USBH_MSC_Read(&hUSB_Host, lun, sector, buff, count) == USBH_OK)
+  if (((DWORD)buff & 3) && (((HCD_HandleTypeDef *)hUSB_Host.pData)->Init.dma_enable))
+  {
+    while ((count--)&&(status == USBH_OK))
+    {
+      status = USBH_MSC_Read(&hUSB_Host, lun, sector + count, (uint8_t *)scratch, 1);
+
+      if(status == USBH_OK)
+      {
+        memcpy (&buff[count * _MAX_SS] ,scratch, _MAX_SS);
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
+  else
+  {
+    status = USBH_MSC_Read(&hUSB_Host, lun, sector, buff, count);
+  }
+
+  if(status == USBH_OK)
   {
     res = RES_OK;
   }
@@ -157,8 +180,28 @@ DRESULT USBH_write(BYTE lun, const BYTE *buff, DWORD sector, UINT count)
 {
   DRESULT res = RES_ERROR;
   MSC_LUNTypeDef info;
+  USBH_StatusTypeDef  status = USBH_OK;
 
-  if(USBH_MSC_Write(&hUSB_Host, lun, sector, (BYTE *)buff, count) == USBH_OK)
+  if (((DWORD)buff & 3) && (((HCD_HandleTypeDef *)hUSB_Host.pData)->Init.dma_enable))
+  {
+
+    while (count--)
+    {
+      memcpy (scratch, &buff[count * _MAX_SS], _MAX_SS);
+
+      status = USBH_MSC_Write(&hUSB_Host, lun, sector + count, (BYTE *)scratch, 1) ;
+      if(status == USBH_FAIL)
+      {
+        break;
+      }
+    }
+  }
+  else
+  {
+    status = USBH_MSC_Write(&hUSB_Host, lun, sector, (BYTE *)buff, count);
+  }
+
+  if(status == USBH_OK)
   {
     res = RES_OK;
   }

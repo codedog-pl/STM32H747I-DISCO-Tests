@@ -167,7 +167,7 @@ Error_Handler();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
-  MX_USB_HOST_Init();
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
